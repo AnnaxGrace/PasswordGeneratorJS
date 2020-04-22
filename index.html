@@ -15,7 +15,8 @@
         var UpperCase = String(lowerCase).toUpperCase().split(",");
         var special = ["!", "?", "#", "@", "^", "%", "&", "*", "(", ")", "|", "}"];
         var number = ["1", "2", "3", "4", "5", "6","7", "8", "9", "0"];
-        
+        var password = [];
+
         //length of password
         var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
 
@@ -28,22 +29,19 @@
         //YOU CAN MAKE A FUNTION FOR THESE, like function random
 
         function random(char) {
-        Math.floor(Math.random() * (char.length - 1));
+        return Math.floor(Math.random() * (char.length - 1));
             }
          
         var randomls = random(lowerCase);
-        /*
-       var randomls = Math.floor(Math.random() * (lowerCase.length - 1)); 
-       */
+        var randomuc = random(UpperCase);
+        var randomspec = random(special);
+        var randomnum = random(number);
        
-        //uppercase random generated
-        var randomuc = Math.floor(Math.random() * (UpperCase.length - 1));
 
-        //special random generated
-        var randomspec = Math.floor(Math.random() * (special.length - 1));
+        for (var i = 0; i < length + 1; i++) {
+            console.log
 
-        //number random generated
-        var randomnum = Math.floor(Math.random() * (number.length - 1));
+        }
 
         console.log(length)
         console.log(lowerCase[randomls]); 
