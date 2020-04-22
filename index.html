@@ -19,19 +19,37 @@
         //length of password
         var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
 
+        var confirmLowerCase = confirm("Do you want lowercase characters?");
+        var confirmUpperCase = confirm("Do you want uppercase characters?");
+        var confirmSpecial = confirm("Do you want special characters?");
+        var confirmNumber = confirm("Do you want numerical characters?");
+
         //lowercase random generated
-       var randomls = Math.floor(Math.random() * (lowerCase.length - 1));
+        //YOU CAN MAKE A FUNTION FOR THESE, like function random
+
+        function random(char) {
+        Math.floor(Math.random() * (char.length - 1));
+            }
+         
+        var randomls = random(lowerCase);
+        /*
+       var randomls = Math.floor(Math.random() * (lowerCase.length - 1)); 
+       */
        
         //uppercase random generated
-        var randomuc = Math.floor(Math.random() * (UpperCase.length -1));
+        var randomuc = Math.floor(Math.random() * (UpperCase.length - 1));
 
         //special random generated
-        var randomspec = Math.floor(Math.random() * 13);
+        var randomspec = Math.floor(Math.random() * (special.length - 1));
+
+        //number random generated
+        var randomnum = Math.floor(Math.random() * (number.length - 1));
 
         console.log(length)
         console.log(lowerCase[randomls]); 
         console.log(UpperCase[randomuc]);
         console.log(special[randomspec]);
+        console.log(number[randomnum]);
 
        // if whatever > number choices keep looping
 
