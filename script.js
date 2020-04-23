@@ -41,7 +41,6 @@ function confirmFunction() {
 function confirmUpperCase() {
     var y = confirm("Do you want uppercase characters?");
     if (y === true) {
-        console.log(UpperCase);
         password.push(UpperCase);
         return password;
     }
@@ -50,7 +49,6 @@ function confirmUpperCase() {
 function confirmSpecial() {
     var y = confirm("Do you want special characters?");
     if (y === true) {
-        console.log(special);
         password.push(special);
         return password;
     }
@@ -59,7 +57,6 @@ function confirmSpecial() {
 function confirmNumber() {
     var y = confirm("Do you want numerical characters?");
     if (y === true) {
-        console.log(number);
         password.push(number);
         return password;
     }
@@ -85,7 +82,7 @@ for (var i = 0; i < length; i++) {
     }
     else if (finalRandom === 1) {
         var randomls = random(lowerCase);
-        if (password.lowerCase.indexOf("a") === -1 ) {
+        if (password[lowerCase].indexOf("a") === -1 ) {
         finalPassword.push(lowerCase[randomls]);
         }
     }
