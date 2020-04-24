@@ -1,4 +1,5 @@
-// Assignment Code
+
+
 var generateBtn = document.querySelector("#generate");
 
 var lowerCase =["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -7,20 +8,28 @@ var special = ["!", "?", "#", "@", "^", "%", "&", "*", "(", ")", "|", "}"];
 var number = ["1", "2", "3", "4", "5", "6","7", "8", "9", "0"];
 var password = [];
 var finalPassword = [];
+var generate = finalPassword.join("");
 
 //length of password
-var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
+//var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
 
  //Randomly generates from array
  function random(char) {
 return Math.floor(Math.random() * (char.length - 1));
     }
+
+/*
+  function writePassword() {
+  if (length > 7 && length < 129) {
+  alert("Your password is" + generate);
+  }
+  else {
+        alert("Please choose a valid password length");
+  }
+    
+  }
+  */
  
-// creates the random variables
-//var randomls = random(lowerCase);
-// var randomuc = random(UpperCase);
-// var randomspec = random(special);
-//var randomnum = random(number);
 
 function confirmFunction() {
     
@@ -57,15 +66,23 @@ function confirmNumber() {
     }
 }
 
-confirmFunction()
-confirmUpperCase();
-confirmSpecial();
-confirmNumber();
 
 
-console.log(password);
 
-for (var i = 0; i < length; i++) {
+
+generateBtn.addEventListener("click", function() {
+  var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
+  confirmFunction()
+  confirmUpperCase();
+  confirmSpecial();
+  confirmNumber();
+  if (password < 1) {
+    alert("You must choose one, please start over");
+    
+  }
+  else {
+  console.log(password);
+  for (var i = 0; i < length; i++) {
    var finalRandom = Math.floor(Math.random() * 4);
    console.log("This is" + finalRandom);
    
@@ -138,25 +155,27 @@ for (var i = 0; i < length; i++) {
         }
     }
         
-}
-
-console.log(length);
-console.log(password);
-console.log(finalPassword);
-
-
-var generate = String(finalPassword).split(",");
-
-
-function writePassword() {
+  }
+  console.log(length);
+  console.log(finalPassword);
+  var generate = finalPassword.join("");
+  console.log(generate);
   if (length > 7 && length < 129) {
-  alert(generate);
+    alert("Your password is " + generate);
+    }
+    else {
+          alert("Please choose a valid password length");
+    }
+      
   }
-  else {
-    alert("Please choose a valid password length");
-  }
+  
 
-}
+});
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+
+
+
+
+
+
+
