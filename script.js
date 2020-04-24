@@ -6,61 +6,45 @@ var lowerCase =["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", "m", 
 var UpperCase = String(lowerCase).toUpperCase().split(",");
 var special = ["!", "?", "#", "@", "^", "%", "&", "*", "(", ")", "|", "}"];
 var number = ["1", "2", "3", "4", "5", "6","7", "8", "9", "0"];
+
 var password = [];
 var finalPassword = [];
-var generate = finalPassword.join("");
 
-//length of password
-//var length = prompt("How long do you want your password to be? Choose a whole number between 8 and 128"); 
 
- //Randomly generates from array
- function random(char) {
-return Math.floor(Math.random() * (char.length - 1));
-    }
 
-/*
-  function writePassword() {
-  if (length > 7 && length < 129) {
-  alert("Your password is" + generate);
-  }
-  else {
-        alert("Please choose a valid password length");
-  }
-    
-  }
-  */
- 
+
+function random(char) {
+  return Math.floor(Math.random() * (char.length - 1));
+}
 
 function confirmFunction() {
     
-  var yesLower =  confirm("Do you want lower characters?");
+  var yesLower =  confirm("Do you want lowercase characters?");
   if(yesLower === true) {
       password.push(lowerCase);
       return password;
-  } else {
-      console.log("run next quesiton function");
   }
 }
 
 function confirmUpperCase() {
-    var y = confirm("Do you want uppercase characters?");
-    if (y === true) {
+    var yesUpper = confirm("Do you want uppercase characters?");
+    if (yesUpper === true) {
         password.push(UpperCase);
         return password;
     }
 }
 
 function confirmSpecial() {
-    var y = confirm("Do you want special characters?");
-    if (y === true) {
+    var yesSpecial = confirm("Do you want special characters?");
+    if (yesSpecial === true) {
         password.push(special);
         return password;
     }
 }
 
 function confirmNumber() {
-    var y = confirm("Do you want numerical characters?");
-    if (y === true) {
+    var yesNumber = confirm("Do you want numerical characters?");
+    if (yesNumber === true) {
         password.push(number);
         return password;
     }
@@ -81,10 +65,8 @@ generateBtn.addEventListener("click", function() {
     
   }
   else {
-  console.log(password);
   for (var i = 0; i < length; i++) {
    var finalRandom = Math.floor(Math.random() * 4);
-   console.log("This is" + finalRandom);
    
     if (finalRandom === 0 ) {
       var randomnum = random(number);
@@ -156,15 +138,13 @@ generateBtn.addEventListener("click", function() {
     }
         
   }
-  console.log(length);
-  console.log(finalPassword);
+
   var generate = finalPassword.join("");
-  console.log(generate);
   if (length > 7 && length < 129) {
     alert("Your password is " + generate);
     }
-    else {
-          alert("Please choose a valid password length");
+  else {
+    alert("Please choose a valid password length");
     }
       
   }
