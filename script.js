@@ -24,14 +24,9 @@ return Math.floor(Math.random() * (char.length - 1));
 
 function confirmFunction() {
     
-  var x =  confirm("Do you want lower characters?");
-  if(x === true) {
-    //   find target array, choose method, content to be pushed into array
-    //    target = password, method = push, content = randomls
+  var yesLower =  confirm("Do you want lower characters?");
+  if(yesLower === true) {
       password.push(lowerCase);
-      //confirmUpperCase();
-      //confirmSpecial();
-      //confirmNumber();
       return password;
   } else {
       console.log("run next quesiton function");
@@ -73,50 +68,95 @@ console.log(password);
 for (var i = 0; i < length; i++) {
    var finalRandom = Math.floor(Math.random() * 4);
    console.log("This is" + finalRandom);
-   //this is next
+   
     if (finalRandom === 0 ) {
-    var randomnum = random(number);
-     if (password.indexOf('1')) {
-     finalPassword.push(number[randomnum]);
+      var randomnum = random(number);
+      var numArray = false;
+      for (var n = 0; n < password.length; n++) {
+        if (password[n].indexOf("1") > -1 ) {
+        numArray = true
+        }
+      }
+      if (numArray === true) {
+        finalPassword.push(number[randomnum]);
+      }
+      else {
+       i--
+      }
+      
     }
-    }
+    
     else if (finalRandom === 1) {
         var randomls = random(lowerCase);
-        if (password[lowerCase].indexOf("a") === -1 ) {
+        var lowerArray = false;
+        for (var j = 0; j < password.length; j++) {
+          if (password[j].indexOf("a") > -1 ) {
+            lowerArray = true;
+          }
+
+        }
+        if (lowerArray === true) {
         finalPassword.push(lowerCase[randomls]);
         }
+        else {
+          i--;
+        }
     }
+        
+    
     else if (finalRandom === 2) {
         var randomuc = random(UpperCase);
+        var upperArray = false;
+        for (var k = 0; k < password.length; k++) {
+          if (password[k].indexOf("A") > -1 ) {
+            upperArray = true
+          }
+
+        }
+        if (upperArray === true) {
         finalPassword.push(UpperCase[randomuc]);
+        }
+        else {
+          i--
+        }
     }
+
     else if (finalRandom === 3) {
         var randomspec = random(special);
+        var specialArray = false;
+        for (var m = 0; m < password.length; m++) {
+          if (password[m].indexOf("!") > -1 ) {
+            specialArray = true
+          }
+
+        }
+        if (specialArray === true) {
         finalPassword.push(special[randomspec]);
+        }
+        else {
+          i--
+        }
     }
-   
+        
 }
-// and array password contains variable (maybe use a,A,!,1) look at farm loop that used "c" || "o"
 
 console.log(length);
 console.log(password);
 console.log(finalPassword);
 
-// if whatever > number choices keep looping
+
+var generate = String(finalPassword).split(",");
 
 
-// Write password to the #password input
-//function writePassword() {
-  //if (length === >7 && length === <129) {
-  //alert(finalPassword)
+function writePassword() {
+  if (length > 7 && length < 129) {
+  alert(generate);
+  }
+  else {
+    alert("Please choose a valid password length");
+  }
 
-  //passwordText.value = password;
-  //}
-  //else {
-    //alert("Please choose a valid password length");
-  //}
-
-//}
+}
 
 // Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword());
